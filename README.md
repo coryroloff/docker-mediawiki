@@ -22,8 +22,8 @@ docker run -d -p 8080:80 -v /some/data:/data -v /some/html:/var/www/html -v /som
 
 | Volume        | Description                                                                                                                                                                                |
 |---------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| /data         | This volume contains user-generated content located inside the MediaWiki installation directory.<br>/var/www/w/LocalSettings.php -> /data/LocalSettings.php<br>/var/www/w/images -> /data/images |
-| /var/www/html | The Apache document root. Files such as "robots.txt" and ".htaccess" may be placed here.                                                                                                   |
+| /data         | This volume contains user-generated content included with the install.<br>/var/www/w/LocalSettings.php -> /data/LocalSettings.php<br>/var/www/w/images -> /data/images |
+| /var/www/html | The Apache document root.                                                                                                   |
 | /var/www/data | If using Sqlite, the Sqlite database file(s) are placed here.                                                                                                                              |
 
 ## Short URLs
@@ -56,7 +56,7 @@ $wgArticlePath = "/wiki/$1";
 
 ### robots.txt
 
-To control the behavior of search engines, place a robots.txt in the `/var/www/html` volume. Note: It is recommended you block URLs in /w if using short URLs.
+To control the behavior of search engines, place a robots.txt in the `/var/www/html` volume. Note: It is recommended you block URLs in /w if using short URLs. For more information, visit [http://www.mediawiki.org/wiki/Manual:Robots.txt](http://www.mediawiki.org/wiki/Manual:Robots.txt).
 
 ```
 User-agent: *
