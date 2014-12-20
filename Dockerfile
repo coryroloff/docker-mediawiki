@@ -25,12 +25,12 @@ RUN DIR=$(echo $MEDIAWIKI_VERSION | awk -F \. {'print $1"."$2'}) && \
     curl -sSL http://releases.wikimedia.org/mediawiki/$DIR/mediawiki-$MEDIAWIKI_VERSION.tar.gz | \
     tar --strip-components=1 -xz && \
     rm -rf /var/www/w/images && \
-    mkdir /data /var/www/data && \
-    chown -R www-data:www-data /data /var/www && \
-    ln -s /data/LocalSettings.php /var/www/w/LocalSettings.php && \
-    ln -s /data/images /var/www/w/images
+    mkdir /var/www/mediawiki /var/www/data && \
+    chown -R www-data:www-data /var/www && \
+    ln -s /var/www/mediawiki/LocalSettings.php /var/www/w/LocalSettings.php && \
+    ln -s /var/www/mediawiki/images /var/www/w/images
 
-VOLUME ["/data", "/var/www/html", "/var/www/data"]
+VOLUME ["/var/www/mediawiki", "/var/www/html", "/var/www/data"]
 
 COPY start-mediawiki.sh /usr/local/bin/
 
