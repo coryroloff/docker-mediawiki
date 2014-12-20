@@ -9,7 +9,7 @@ MediaWiki is a free and open-source wiki application, used to power wiki website
 ## Basic Usage
 
 ```bash
-docker run -d -p 8080:80 -v /some/data:/data -v /some/html:/var/www/html -v /some/db:/var/www/data --name mediawiki coryroloff/mediawiki
+docker run -d -p 8080:80 -v /some/mediawiki:/var/www/mediawiki -v /some/html:/var/www/html -v /some/db:/var/www/data --name mediawiki coryroloff/mediawiki
 ```
 
 ### Ports
@@ -22,9 +22,14 @@ docker run -d -p 8080:80 -v /some/data:/data -v /some/html:/var/www/html -v /som
 
 | Volume        | Description                                                                                                                                                                                |
 |---------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| /data         | This volume contains user-generated content included with the install.<br>/var/www/w/LocalSettings.php -> /data/LocalSettings.php<br>/var/www/w/images -> /data/images |
+| /var/www/mediawiki         | This volume contains user-generated content included with the install.<br>/var/www/w/LocalSettings.php -> /var/www/mediawiki/LocalSettings.php<br>/var/www/w/images -> /var/www/mediawiki/images |
 | /var/www/html | The Apache document root.                                                                                                   |
 | /var/www/data | If using Sqlite, the Sqlite database file(s) are placed here.                                                                                                                              |
+
+During container start:
+
+* Volume permissions are repaired
+* Directory mw-config is deleted if LocalSettings.php exists in /var/www/mediawiki.
 
 ## Short URLs
 
@@ -45,7 +50,7 @@ RewriteRule ^/*$ %{DOCUMENT_ROOT}/w/index.php [L]
 
 ### LocalSettings.php
 
-You must also edit LocalSettings.php found in the `/data` volume. Note: The container ships with an Apache alias for /w (the default installation directory of MediaWiki).
+You must also edit LocalSettings.php found in the `/var/www/mediawiki` volume. Note: The container ships with an Apache alias for /w (the default installation directory of MediaWiki).
 
 ```php
 $wgScriptPath = "/w";
