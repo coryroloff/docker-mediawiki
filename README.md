@@ -26,7 +26,7 @@ docker run -d -p 8080:80 -v /some/mediawiki:/var/www/mediawiki -v /some/html:/va
 | /var/www/html | The Apache document root.                                                                                                   |
 | /var/www/data | If using Sqlite, the Sqlite database file(s) are placed here.                                                                                                                              |
 
-During container start:
+### Startup
 
 * Volume permissions are repaired
 * Directory mw-config is deleted if LocalSettings.php exists in /var/www/mediawiki.
