@@ -28,7 +28,7 @@ docker run -d -p 8080:80 -v /some/mediawiki:/var/www/mediawiki -v /some/html:/va
 
 ### Startup
 
-* Volume permissions are repaired
+* Volume permissions are repaired.
 * Directory mw-config is deleted if LocalSettings.php exists in /var/www/mediawiki.
 
 ## Short URLs
