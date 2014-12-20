@@ -19,7 +19,7 @@ RUN mkdir -p /var/www/w
 
 WORKDIR /var/www/w
 
-ENV MEDIAWIKI_VERSION 1.24.0
+ENV MEDIAWIKI_VERSION 1.24.1
 
 RUN DIR=$(echo $MEDIAWIKI_VERSION | awk -F \. {'print $1"."$2'}) && \
     curl -sSL http://releases.wikimedia.org/mediawiki/$DIR/mediawiki-$MEDIAWIKI_VERSION.tar.gz | \
