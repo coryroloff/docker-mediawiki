@@ -22,7 +22,7 @@ docker run -d -p 8080:80 -v /some/mediawiki:/var/www/mediawiki -v /some/html:/va
 
 | Volume        | Description                                                                                                                                                                                |
 |---------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| /var/www/mediawiki         | This volume contains user-generated content included with the install.<br>/var/www/w/LocalSettings.php -> /var/www/mediawiki/LocalSettings.php<br>/var/www/w/images -> /var/www/mediawiki/images |
+| /var/www/mediawiki         | This volume contains user-generated content included with the install.<br>/var/www/w/LocalSettings.php -> /var/www/mediawiki/LocalSettings.php<br>/var/www/w/images -> /var/www/mediawiki/images<br>/var/www/w/skins -> /var/www/mediawiki/skins<br>/var/www/w/extensions -> /var/www/mediawiki/extensions |
 | /var/www/html | The Apache document root.                                                                                                   |
 | /var/www/data | If using Sqlite, the Sqlite database file(s) are placed here.                                                                                                                              |
 
