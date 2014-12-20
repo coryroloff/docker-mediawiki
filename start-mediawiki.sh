@@ -1,7 +1,6 @@
 #!/bin/bash
 
 mkdir -p /var/www/mediawiki/images/lockdir
-mkdir -p /var/www/mediawiki/images/deleted
 
 if [[ ! -f "/var/www/mediawiki/skins" ]]; then
   mv /var/www/w/skins /var/www/mediawiki
